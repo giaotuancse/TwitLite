@@ -13,6 +13,7 @@ class HomeViewController: UIViewController, NewTweetViewControllerDelegate {
     @IBOutlet weak var tableView: UITableView!
 
     var tweetList = [Tweet]()
+    var refreshControl:UIRefreshControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,15 +25,26 @@ class HomeViewController: UIViewController, NewTweetViewControllerDelegate {
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 50
         
+        refreshData()
+        
+        // Refresh UI
+        self.refreshControl = UIRefreshControl()
+        self.refreshControl.addTarget(self, action: "refreshData", forControlEvents: UIControlEvents.ValueChanged)
+        self.tableView.addSubview(refreshControl)
+
+    }
+    
+    func refreshData() {
         //load data
         TwitterClient.sharedInstance.fecthTimeline { (tweet, error) -> () in
+            self.refreshControl.endRefreshing()
             if tweet != nil {
                 print(tweet?.count)
                 self.tweetList = tweet!
                 self.tableView.reloadData()
             }
         }
-        
+
     }
 
     override func didReceiveMemoryWarning() {
