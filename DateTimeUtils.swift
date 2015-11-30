@@ -2,7 +2,6 @@
 import Foundation
 
 public class DateTimeUtils {
-    
     public static func getShortDate(date : NSDate) -> String {
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "MM/dd/yy"
@@ -75,10 +74,7 @@ public class DateTimeUtils {
         if components.second >= 3 {
             return "\(components.second)s"
         }
-        
         return "now"
-        
     }
-    
-   }
+}
 

@@ -14,7 +14,6 @@ let twitterConsumerSecret = "8IzkQvVcILw2mSM49WlHmZejidn9LNZ9OzYrpIEJqTc5tmAfwm"
 let twitterBaseURL = NSURL(string : "https://api.twitter.com")
 
 class TwitterClient: BDBOAuth1RequestOperationManager {
-    
     var loginCompletion: ((user: User?, error: NSError?) -> ())?
     
     class var sharedInstance : TwitterClient {
@@ -153,7 +152,6 @@ class TwitterClient: BDBOAuth1RequestOperationManager {
     }
     
     func replyTweet(text: String, id: String, completion: (tweet: Tweet?, error: NSError?) -> ()) {
-        
         var params = [String : AnyObject]()
         params["status"] = text
         params["in_reply_to_status_id"] = id
@@ -166,5 +164,4 @@ class TwitterClient: BDBOAuth1RequestOperationManager {
                 completion(tweet: nil, error: error)
         }
     }
-
 }

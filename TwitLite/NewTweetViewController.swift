@@ -32,7 +32,6 @@ class NewTweetViewController: UIViewController, UITextViewDelegate {
         if isReply == true {
             contentTextView.placeholder = "Reply to \((currentTweet?.user?.name)! as String)"
         }
-        
         // handle action on exit image clicked
         let tapGestureRecognizer = UITapGestureRecognizer(target:self, action:Selector("imageTapped"))
         exitImageView.userInteractionEnabled = true
@@ -47,38 +46,20 @@ class NewTweetViewController: UIViewController, UITextViewDelegate {
         // Do any additional setup after loading the view.
         avatarImageView.setImageWithURL((User.currentUser?.profileImageURL!)!)
     }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
     func imageTapped() {
         dismissViewControllerAnimated(true, completion: nil)
     }
     
     func putBottomControlToTop(notification: NSNotification) {
-        
         var info = notification.userInfo!
         let keyboardFrame: CGRect = (info[UIKeyboardFrameEndUserInfoKey] as! NSValue).CGRectValue()
-        
         UIView.animateWithDuration(0.3, animations: { () -> Void in
             self.bottomControlConstraint.constant = keyboardFrame.size.height
         })
     }
     
     func putBottomControlToBottom() {
-        
         UIView.animateWithDuration(0.3, animations: { (   ) -> Void in
             self.bottomControlConstraint.constant = 0
         })
@@ -90,12 +71,12 @@ class NewTweetViewController: UIViewController, UITextViewDelegate {
     }
     
     func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
-                let currentCharacterCount = textView.text?.characters.count ?? 0
-                if (range.length + range.location > currentCharacterCount){
-                    return false
-                }
-                let newLength = currentCharacterCount + text.characters.count - range.length
-                return newLength <= 140
+        let currentCharacterCount = textView.text?.characters.count ?? 0
+        if (range.length + range.location > currentCharacterCount){
+            return false
+        }
+        let newLength = currentCharacterCount + text.characters.count - range.length
+        return newLength <= 140
     }
 
     @IBAction func onTweetClicked(sender: UIButton) {
@@ -119,6 +100,5 @@ class NewTweetViewController: UIViewController, UITextViewDelegate {
                 }
             }
         }
-       
     }
 }

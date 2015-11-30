@@ -10,7 +10,6 @@ import Foundation
 import UIKit
 
 public class UIHelper {
-    
     public static func setTextAtributted(label: UILabel, inputText: String ) {
         let encodedData = inputText.dataUsingEncoding(NSUTF8StringEncoding)!
         let attributedOptions = [NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType]
@@ -23,7 +22,6 @@ public class UIHelper {
     }
     
     func setNewCountRetweet(label: UILabel, valueInc: Int, tweet: Tweet) {
-        
         if tweet.isRetweetFromOther {
             let curReTweet = tweet.reTweet!
             curReTweet.retweetCount = (tweet.retweetCount as Int) + valueInc
@@ -38,7 +36,6 @@ public class UIHelper {
         }
     }
     func setNewCountFavourite(label: UILabel, valueInc: Int, tweet: Tweet) {
-        
         if tweet.isRetweetFromOther {
             let curReTweet = tweet.reTweet!
             print(tweet.favoriteCount)

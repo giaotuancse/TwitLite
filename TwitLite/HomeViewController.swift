@@ -11,7 +11,6 @@ import Cartography
 
 class HomeViewController: UIViewController, NewTweetViewControllerDelegate {
     @IBOutlet weak var tableView: UITableView!
-
     var tweetList = [Tweet]()
     var refreshControl:UIRefreshControl!
     
@@ -19,21 +18,18 @@ class HomeViewController: UIViewController, NewTweetViewControllerDelegate {
         super.viewDidLoad()
         
         navigationController?.navigationBar.hidden  = false;
-        
         tableView.dataSource = self
         tableView.delegate = self
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 50
         
         refreshData()
-        
         // Refresh UI
         self.refreshControl = UIRefreshControl()
         self.refreshControl.addTarget(self, action: "refreshData", forControlEvents: UIControlEvents.ValueChanged)
         self.tableView.addSubview(refreshControl)
 
     }
-    
     func refreshData() {
         //load data
         TwitterClient.sharedInstance.fecthTimeline { (tweet, error) -> () in
@@ -46,33 +42,22 @@ class HomeViewController: UIViewController, NewTweetViewControllerDelegate {
         }
 
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     @IBAction func logoutClicked(sender: UIBarButtonItem) {
         User.currentUser?.logout()
     }
-
-    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-        let navigationController = segue.destinationViewController
-        if navigationController is NewTweetViewController {
-            let newTweetViewController = navigationController as! NewTweetViewController
-            newTweetViewController.delegate = self
-             newTweetViewController.isReply = false
-        } else if navigationController is DetailViewController {
-            let detailViewController = navigationController  as! DetailViewController
+        if let navigationController = segue.destinationViewController as? NewTweetViewController {
+            navigationController.delegate = self
+             navigationController.isReply = false
+        } else if let navigationController = segue.destinationViewController as? DetailViewController{
             var indexPath: AnyObject!
             indexPath = tableView.indexPathForCell(sender as! UITableViewCell)
-            detailViewController.currentTweet = tweetList[indexPath!.row]
+            navigationController.currentTweet = tweetList[indexPath!.row]
         }
     }
     
@@ -84,15 +69,9 @@ class HomeViewController: UIViewController, NewTweetViewControllerDelegate {
 }
 
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
-    @available(iOS 2.0, *)
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tweetList.count
     }
-    
-    // Row display. Implementers should *always* try to reuse cells by setting each cell's reuseIdentifier and querying for available reusable cells with dequeueReusableCellWithIdentifier:
-    // Cell gets various attributes set automatically based on table (separators) and data source (accessory views, editing controls)
-    
-    @available(iOS 2.0, *)
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = self.tableView.dequeueReusableCellWithIdentifier("tweetCell") as! TweetCell2
         let curItem = tweetList[indexPath.row]

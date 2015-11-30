@@ -9,7 +9,6 @@
 import UIKit
 
 class TweetTableViewCell: UITableViewCell {
-
     @IBOutlet weak var retweetTopViewTopCostrant: NSLayoutConstraint!
     @IBOutlet weak var retweetTopView: UIView!
     @IBOutlet weak var tweetCotentView: UIView!
@@ -22,16 +21,4 @@ class TweetTableViewCell: UITableViewCell {
     @IBOutlet weak var retweetImageView: UIImageView!
     @IBOutlet weak var favouriteImageView: UIImageView!
     @IBOutlet weak var retweetNameLabel: UILabel!
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-
 }

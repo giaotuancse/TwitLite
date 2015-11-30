@@ -9,8 +9,6 @@
 import UIKit
 
 class DetailViewController: UIViewController {
-
-  
     @IBOutlet weak var topHeightContraint: NSLayoutConstraint!
     @IBOutlet weak var avatarImage: UIImageView!
     @IBOutlet weak var retweetUsernameLabel: UILabel!
@@ -21,7 +19,6 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var retweetCountlabel: UILabel!
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var favouriteButton: UIButton!
-    
     @IBOutlet weak var replyButton: UIButton!
     @IBOutlet weak var retweetButton: UIButton!
     var currentTweet : Tweet!
@@ -31,12 +28,6 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         loadInitView()
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     func loadInitView() {
@@ -71,7 +62,6 @@ class DetailViewController: UIViewController {
             topHeightContraint.constant = 0
 
         }
-
     }
 
     @IBAction func onRetweetToggle(sender: UIButton) {
@@ -159,11 +149,6 @@ class DetailViewController: UIViewController {
         }
     }
     
-    
-    
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
@@ -174,6 +159,4 @@ class DetailViewController: UIViewController {
             newTweetViewController.currentTweet = currentTweet
         }
     }
-
-
 }
