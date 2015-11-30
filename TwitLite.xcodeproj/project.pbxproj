@@ -11,7 +11,6 @@
 		711A97581C061E890056219E /* DateTimeUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711A97571C061E890056219E /* DateTimeUtils.swift */; };
 		711D6FF71C07731800A832EE /* TweetCell2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711D6FF61C07731800A832EE /* TweetCell2.swift */; };
 		711D6FF91C07852500A832EE /* NewTweetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711D6FF81C07852500A832EE /* NewTweetViewController.swift */; };
-		713612461C059D5100902B78 /* TweetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 713612451C059D5100902B78 /* TweetTableViewCell.swift */; };
 		71363A221C033D7000FFEC9A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71363A211C033D7000FFEC9A /* AppDelegate.swift */; };
 		71363A241C033D7000FFEC9A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71363A231C033D7000FFEC9A /* ViewController.swift */; };
 		71363A271C033D7000FFEC9A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71363A251C033D7000FFEC9A /* Main.storyboard */; };
@@ -31,7 +30,6 @@
 		711A97571C061E890056219E /* DateTimeUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateTimeUtils.swift; sourceTree = "<group>"; };
 		711D6FF61C07731800A832EE /* TweetCell2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetCell2.swift; sourceTree = "<group>"; };
 		711D6FF81C07852500A832EE /* NewTweetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewTweetViewController.swift; sourceTree = "<group>"; };
-		713612451C059D5100902B78 /* TweetTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetTableViewCell.swift; sourceTree = "<group>"; };
 		71363A1E1C033D7000FFEC9A /* TwitLite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TwitLite.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		71363A211C033D7000FFEC9A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		71363A231C033D7000FFEC9A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -91,7 +89,6 @@
 		713612441C059D2300902B78 /* TableCell */ = {
 			isa = PBXGroup;
 			children = (
-				713612451C059D5100902B78 /* TweetTableViewCell.swift */,
 				711D6FF61C07731800A832EE /* TweetCell2.swift */,
 			);
 			name = TableCell;
@@ -292,7 +289,6 @@
 				711D6FF71C07731800A832EE /* TweetCell2.swift in Sources */,
 				71697E461C05999C003D7D58 /* HomeViewController.swift in Sources */,
 				711A97581C061E890056219E /* DateTimeUtils.swift in Sources */,
-				713612461C059D5100902B78 /* TweetTableViewCell.swift in Sources */,
 				711D6FF91C07852500A832EE /* NewTweetViewController.swift in Sources */,
 				71D2E2441C085ED80072344B /* UIHelper.swift in Sources */,
 			);

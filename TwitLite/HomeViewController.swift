@@ -8,6 +8,7 @@
 
 import UIKit
 import Cartography
+import Darwin
 
 class HomeViewController: UIViewController, NewTweetViewControllerDelegate {
     @IBOutlet weak var tableView: UITableView!
@@ -44,6 +45,7 @@ class HomeViewController: UIViewController, NewTweetViewControllerDelegate {
     }
     @IBAction func logoutClicked(sender: UIBarButtonItem) {
         User.currentUser?.logout()
+        exit(0)
     }
     // MARK: - Navigation
 

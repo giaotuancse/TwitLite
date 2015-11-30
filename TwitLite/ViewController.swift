@@ -15,7 +15,7 @@ class ViewController: UIViewController {
             (user : User?, error : NSError?) in
             if user != nil {
                 // perform segue
-            self.performSegueWithIdentifier("loginSegue", sender: self)
+            self.performSegueWithIdentifier("loginSegue2", sender: self)
             } else {
                 //handle login error
             }
